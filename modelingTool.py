@@ -6,7 +6,6 @@ def rotateMath(axis):
 	degrees = [0, 90, 180, 270]
 	currentRotVal = 0
 	newRotValue = 0
-	print 'newRotValue1', newRotValue
 	#look at the nearest degree the current rotation is in
 	sel = cmds.ls(sl=True)
 	for s in sel:
@@ -68,7 +67,7 @@ def loadWin(*args):
 	window = cmds.window( 'toolwin', title="Gabes QModeling Tool", iconName='Short Name', widthHeight=(200, globalWidth) )
 	cmds.columnLayout( adjustableColumn=True )
 	cmds.text( label='GENERAL' )
-	cmds.button( label='Center Pivot', command=('mm.eval("CenterPivot")'))
+	cmds.button( label='Center Pivot', command=('import maya.mel as mm; mm.eval("CenterPivot")'))
 	cmds.button( label='Delete All History', command=('mm.eval("DeleteHistory;delete -ch;")'))
 	cmds.separator(height=10, style='none')
 
@@ -103,7 +102,7 @@ def loadWin(*args):
 	cmds.button( label='Close', command=('cmds.deleteUI(\"' + window + '\", window=True)') )
 
 	allowedAreas = ['right', 'left']
-	cmds.dockControl( 'tooldock', width=globalWidth, area='left', content='toolwin', allowedArea=allowedAreas, label='abes QModeling Tool' )
+	cmds.dockControl( 'tooldock', width=globalWidth, area='left', content='toolwin', allowedArea=allowedAreas, label='Gabes QModeling Tool' )
 
 	cmds.setParent( '..' )
 	cmds.showWindow( window )
