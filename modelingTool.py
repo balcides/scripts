@@ -85,6 +85,8 @@ def loadWin(*args):
 	cmds.button( label='Select Edge Ring', command=('mm.eval("SelectEdgeRingTool;")'))
 	cmds.button( label='Edge to Face', command=('mm.eval("ConvertSelectionToFaces; PolySelectConvert 1;")'))
 	cmds.button( label='Deselect All', command=('mm.eval("select -cl; autoUpdateAttrEd; statusLineUpdateInputField;")'))
+	cmds.button( label='Show Selection', command=('mm.eval("ShowSelectedObjects;")'))
+	cmds.button( label='Hide Selection', command=('mm.eval("HideSelectedObjects;")'))
 	cmds.separator(height=10, style='none')
 
 	cmds.text( label='CREATE' )
